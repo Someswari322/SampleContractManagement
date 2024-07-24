@@ -1,0 +1,71 @@
+﻿@model ContractManagement.Models.Contract
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Delete Contract</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Delete Contract</h2>
+        <form id="deleteForm">
+            <input type="hidden" id="PartitionKey" value="@Model.PartitionKey" />
+            <input type="hidden" id="RowKey" value="@Model.RowKey" />
+            <div class="form-group">
+                <label for="ContractName">Contract Name:</label>
+                <input type="text" class="form-control" id="ContractName" name="ContractName" value="@Model.ContractName" readonly />
+            </div>
+            <div class="form-group">
+                <label for="ClientName">Client Name:</label>
+                <input type="text" class="form-control" id="ClientName" name="ClientName" value="@Model.ClientName" readonly />
+            </div>
+            <div class="form-group">
+                <label for="File">File:</label>
+                <input type="text" class="form-control" id="BlobName" name="BlobName" value="@Model.BlobName" readonly />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-danger" id="deleteButton" onclick="deleteButton()">Delete</button>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        <script src="~/js/Contract_delete.js"></script>
+    }
+</body>
+</html>

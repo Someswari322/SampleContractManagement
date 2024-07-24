@@ -1,0 +1,74 @@
+﻿@model ContractManagement.Models.Contract
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Create Contract</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Contract</h2>
+
+        <form id="createForm" enctype="multipart/form-data" method="post" asp-action="Create">
+            <div class="form-group">
+                <label for="ContractName">Contract Name:</label>
+                <input type="text" class="form-control" id="ContractName" name="ContractName" />
+            </div>
+            <div class="form-group">
+                <label for="ClientName">Client Name:</label>
+                <input type="text" class="form-control" id="ClientName" name="ClientName" />
+            </div>
+            <div class="form-group">
+                <label for="File">File:</label>
+                <input type="file" class="form-control-file" id="File" name="File" />
+            </div>
+            <!-- Add more fields as needed -->
+            <div id="fileInfo" class="form-group"></div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" id="createButton">Create</button>
+                <button type="button" class="btn btn-secondary" id="getFileInfo">Get File Info</button>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        <script src="~/js/Contract_create.js"></script> <!-- Include your JavaScript file -->
+    }
+</body>
+</html>

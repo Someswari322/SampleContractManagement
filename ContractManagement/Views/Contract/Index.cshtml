@@ -1,0 +1,49 @@
+﻿@model IEnumerable<ContractManagement.Models.Contract>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Contracts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-pzjw8f+ua7Kw1TIqmrNfXr2b5iDgCn8yCpb2xJrnN8mU8AbYME5nI2sEXtpc+5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/Content/site.css" />
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Contracts</h2>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Contract Name</th>
+                        <th>Client Name</th>
+                        <th>File Name</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ContractName</td>
+                            <td>@item.ClientName</td>
+                            <td>@item.BlobName</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-partitionKey="@item.PartitionKey" asp-route-rowKey="@item.RowKey" class="btn btn-warning btn-sm">Edit</a>
+                                <a asp-action="Details" asp-route-partitionKey="@item.PartitionKey" asp-route-rowKey="@item.RowKey" class="btn btn-info btn-sm">Details</a>
+                                <a asp-action="Delete" asp-route-partitionKey="@item.PartitionKey" asp-route-rowKey="@item.RowKey" class="btn btn-danger btn-sm">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-+Kb4glkwL41eLN+Cd5JfakKrOkiSffw3d1FZ56b0U4OcU5E3ZyfF8MZw/7zE4eKz" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgpiSTsPgCPaR9haB9j5rPUNZXEGPyMkF8rGOCFrGtmKw1TjOnM" crossorigin="anonymous"></script>
+</body>
+</html>

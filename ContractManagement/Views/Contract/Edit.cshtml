@@ -1,0 +1,91 @@
+﻿@model ContractManagement.Models.Contract
+
+@{
+    ViewData["Title"] = "Edit Contract";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Contract</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="file"] {
+            width: 50%;
+            padding: 5px;
+            margin: 5px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        form {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Contract</h1>
+        <form id="editContractForm">
+            <input type="hidden" id="PartitionKey" name="PartitionKey" value="@Model.PartitionKey" />
+            <input type="hidden" id="RowKey" name="RowKey" value="@Model.RowKey" />
+            <div class="form-group">
+                <label for="ContractName">Contract Name:</label>
+                <input type="text" id="ContractName" name="ContractName" value="@Model.ContractName" />
+            </div>
+            <div class="form-group">
+                <label for="ClientName">Client Name:</label>
+                <input type="text" id="ClientName" name="ClientName" value="@Model.ClientName" />
+            </div>
+            <div class="form-group">
+                <label for="File">File:</label>
+                <input type="file" id="File" name="file" />
+            </div>
+            <div class="form-group">
+                <label for="BlobName">Blob Name:</label>
+                <input type="text" id="BlobName" name="BlobName" value="@Model.BlobName" />
+            </div>
+            <div class="form-group">
+                <button type="button" id="editContract" onclick="editContract()">Save</button>
+            </div>
+        </form>
+    </div>
+
+    @section Scripts {
+        <script src="~/js/Contract_edit.js"></script> <!-- Include your JavaScript file -->
+    }
+</body>
+</html>
