@@ -28,7 +28,7 @@ namespace ContractManagement.Services
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error in UploadFileAsync: {ex.Message}");
+                Console.WriteLine($"getting Error in UploadFileAsync: {ex.Message}");
             }
         }
 
