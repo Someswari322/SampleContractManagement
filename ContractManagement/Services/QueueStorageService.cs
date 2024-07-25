@@ -20,7 +20,7 @@ namespace ContractManagement.Services
             try
             {
                 var queueClient = _queueServiceClient.GetQueueClient(queueName);
-                await queueClient.CreateIfNotExistsAsync();
+               // await queueClient.CreateIfNotExistsAsync();
                 await queueClient.SendMessageAsync(message);
             }
             catch (Exception ex)
