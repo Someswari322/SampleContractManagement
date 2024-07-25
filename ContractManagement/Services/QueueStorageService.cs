@@ -17,9 +17,16 @@ namespace ContractManagement.Services
 
         public async Task SendMessageAsync(string queueName, string message)
         {
-            var queueClient = _queueServiceClient.GetQueueClient(queueName);
-            await queueClient.CreateIfNotExistsAsync();
-            await queueClient.SendMessageAsync(message);
+            try
+            {
+                var queueClient = _queueServiceClient.GetQueueClient(queueName);
+                await queueClient.CreateIfNotExistsAsync();
+                await queueClient.SendMessageAsync(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UploadFileAsync: {ex.Message}");
+            }
         }
 
     }
